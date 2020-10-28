@@ -1,0 +1,62 @@
+[
+  {
+    type: 'nanoid',
+    module : 'nanoid',
+    action : 'nanoid',
+    groupTitle : 'Nanoid',
+    groupIcon : 'fal fa-lg fal fa-barcode comp-data',
+    title : 'Nano ID',
+    icon : 'fal fa-lg fa-barcode comp-data',
+    dataPickObject: true,
+    properties : [
+      {
+        group: 'Nano ID options',
+        variables: [
+          { name: 'name', optionName: 'name', title: 'Name', type: 'text', required: true, defaultValue: 'NanoID', help: 'This will be the name for the output key and the tag used in the expression builder'},
+          { name: 'api', optionName: 'api', title: 'Method', 
+            type: 'droplist', 
+            values: [
+              {title: 'Secure', value: 'secure', show:[], hide:['alphabet'] },
+              {title: 'Non-Secure', value: 'nonsecure', show:[], hide:['alphabet'] },
+              {title: 'Custom Alphabet Secure', value: 'custom_secure', show:['alphabet'], hide:[]},
+              {title: 'Custom Alphabet Non-Secure', value: 'custom_nonsecure', show:['alphabet'], hide:[]}            
+            ], defaultValue: '',
+            help: 'Choose the method to generate Nano ID. Non-Secure ones prioritize performance over security and low collision probability'
+          ,}
+          { name: 'size', optionName:'size', title: 'ID Size', type: 'number', required: true, defaultValue :'21', help: 'The size of the NanoID generated. The smaller it is the increased probability of collision. Default: 21'},
+          { name: 'alphabet', optionName:'alphabet', title: 'Alphabet', type: 'text', required: false, defaultValue :'', help: 'Add the string of characters you want to use as your custom alphabet. The smaller it is the increased probability of collision.'},
+          { name: 'nanoidOutput', optionName: 'output', title: 'Output', type: 'boolean', defaultValue: false }        
+        ]
+      }
+    ]
+  },
+  {
+    type: 'ananoid',
+    module : 'nanoid',
+    action : 'ananoid',
+    groupTitle : 'Nanoid',
+    groupIcon : 'fal fa-lg fal fa-barcode comp-data',
+    title : 'Nano ID Asynchronous',
+    icon : 'fal fa-lg fa-barcode-scan comp-data',
+    dataPickObject: true,
+    properties : [
+      {
+        group: 'Nano ID Async options',
+        variables: [
+          { name: 'name', optionName: 'name', title: 'Name', type: 'text', required: true, defaultValue: 'NanoID', help: 'This will be the name for the output key and the tag used in the expression builder'},
+          { name: 'api', optionName: 'api', title: 'Method', 
+            type: 'droplist', 
+            values: [
+              {title: 'Secure', value: 'secure', show:[], hide:['alphabet'] },
+              {title: 'Custom Alphabet Secure', value: 'custom_secure', show:['alphabet'], hide:[]},    
+            ], defaultValue: '',
+            help: 'Choose the method to generate Nano ID.'
+          ,}          
+          { name: 'size', optionName:'size', title: 'ID Size', type: 'number', required: true, defaultValue :'21', help: 'The size of the NanoID generated. The smaller it is the increased probability of collision. Default: 21'},
+          { name: 'alphabet', optionName:'alphabet', title: 'Alphabet', type: 'text', required: false, defaultValue :'', help: 'Add the string of characters you want to use as your custom alphabet. The smaller it is the increased probability of collision.'},
+          { name: 'nanoidOutput', optionName: 'output', title: 'Output', type: 'boolean', defaultValue: false }        
+        ]
+      }
+    ]
+  }
+]
